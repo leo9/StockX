@@ -10,7 +10,7 @@
 * **size** : String or Number, e.g. 2
 3. Responses:
 * **200**: Success.
-* **400**: Bad Request. Please find whether fullName, OR brand and style are given in input. Make sure Size is given and it is in the range of 1 to 5 inclusively.
+* **400**: Bad Request. Please find whether fullName, OR brand and style are given in input. Make sure Size is given and it is in the range of 1 to 5 inclusively, and it is integer only.
 * **500**  Internal Error. This is when backend service lost connection to db or other internal errors. 
 4. **Special Notes: Either fullName alone or brand and style together should be given.** If only brand is given, the request will be treated as bad request.
 
