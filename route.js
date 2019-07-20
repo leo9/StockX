@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/stockx', {useNewUrlParser: true});
 
 var size_api = require("./src/api/size_api");
-var constant = require("./src/utils/const");
+var Constant = require("./src/utils/const");
+var Common = require("./src/utils/common");
 
 var Route = function (app){
     app.post('/api/truetosize/get', function(req, res){
@@ -13,13 +14,13 @@ var Route = function (app){
         if (fullName || brand && style){
             size_api.getTrueToSize(brand, style, fullName, function(err, data){
                 if (err){
-                    res.status(500).send(constant.error["500"]);
+                    res.status(500).send(Constant.error["500"]);
                 }else{
                     res.status(200).send(data);
                 }
             });
         }else{
-            res.status(400).send(JSON.stringify(constant.error["400"]));
+            res.status(400).send(JSON.stringify(Constant.error["400"]));
         }
     });
 
@@ -29,8 +30,8 @@ var Route = function (app){
         var fullName = req.body.fullName ? req.body.fullName.trim().toLowerCase() : req.body.fullName;
         var size = req.body.size;
 
-        if (!size || isNaN(size) || Number(size) < 1 || Number(size) > 5){
-            res.status(400).send(JSON.stringify(constant.error["400"]));
+        if (!Common.checkValidSize(size)){
+            res.status(400).send(JSON.stringify(Constant.error["400"]));
             return;
         }
 
@@ -39,13 +40,13 @@ var Route = function (app){
         if (fullName || brand && style){
             size_api.insertTrueToSize(brand, style, fullName, Number(size), function(err, data){
                 if (err){
-                    res.status(500).send(constant.error["500"]);
+                    res.status(500).send(Constant.error["500"]);
                 }else{
                     res.status(200).send(data);
                 }
             });
         }else{
-            res.status(400).send(JSON.stringify(constant.error["400"]));
+            res.status(400).send(JSON.stringify(Constant.error["400"]));
         }
     });
 };
