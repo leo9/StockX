@@ -56,7 +56,7 @@ var getTrueToSize = function(brand, style, fullName, cb){
                 }));
             }else{
                 cb(null, JSON.stringify({
-                    avgTrueToSize: Common.round2Digit(data[0].avg),
+                    avgTrueToSize: data[0].avg,
                 }));
             }
         }
