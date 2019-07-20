@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 
+var Common = require('../utils/common');
+
 // model file import
 var SneakerSize = require('../../model/SneakerSize');
 
@@ -54,7 +56,7 @@ var getTrueToSize = function(brand, style, fullName, cb){
                 }));
             }else{
                 cb(null, JSON.stringify({
-                    avgTrueToSize: data[0].avg,
+                    avgTrueToSize: Common.round2Digit(data[0].avg),
                 }));
             }
         }

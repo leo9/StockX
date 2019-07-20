@@ -29,10 +29,7 @@ var Route = function (app){
         var fullName = req.body.fullName ? req.body.style.trim().toLowerCase() : req.body.fullName;
         var size = req.body.size;
 
-        try{
-            size = Number(size);
-        }catch(e){
-            console.log("input size should be a number");
+        if (!size || isNaN(size) || Number(size) < 1 || Number(size) > 5){
             res.status(400).send(JSON.stringify(constant.error["400"]));
             return;
         }
@@ -40,7 +37,7 @@ var Route = function (app){
         // Either brand + style or full name should be given to 
         // make data meaningful
         if (fullName || brand && style){
-            size_api.insertTrueToSize(brand, style, fullName, size, function(err, data){
+            size_api.insertTrueToSize(brand, style, fullName, Number(size), function(err, data){
                 if (err){
                     res.status(500).send(constant.error["500"]);
                 }else{
