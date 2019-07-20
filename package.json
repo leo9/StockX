@@ -18,7 +18,9 @@
   "homepage": "https://github.com/leo9/StockX#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
     "express": "^4.17.1",
+    "mocha": "^6.2.0",
     "mongoose": "^5.6.5"
   }
 }
