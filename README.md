@@ -36,6 +36,9 @@
 ## How to issue the query?
 You can use [Postman](https://www.getpostman.com/) or [Fiddler](https://www.telerik.com/fiddler). 
 
+## TEST
+Unit test is added. Simply run it by **npm test** under //devmachine/StockX
+
 ## How to serve the web service from my own dev box?
 Use [ngrok](https://ngrok.com/) to expose the 8081 port
 
