@@ -8,7 +8,7 @@ var Route = function (app){
     app.post('/api/truetosize/get', function(req, res){
         var brand = req.body.brand ? req.body.brand.trim().toLowerCase() : req.body.brand;
         var style = req.body.style ? req.body.style.trim().toLowerCase() : req.body.style;
-        var fullName = req.body.fullName ? req.body.style.trim().toLowerCase() : req.body.fullName;
+        var fullName = req.body.fullName ? req.body.fullName.trim().toLowerCase() : req.body.fullName;
 
         if (fullName || brand && style){
             size_api.getTrueToSize(brand, style, fullName, function(err, data){
@@ -26,7 +26,7 @@ var Route = function (app){
     app.post('/api/truetosize/insert', function(req, res){
         var brand = req.body.brand ? req.body.brand.trim().toLowerCase() : req.body.brand;
         var style = req.body.style ? req.body.style.trim().toLowerCase() : req.body.style;
-        var fullName = req.body.fullName ? req.body.style.trim().toLowerCase() : req.body.fullName;
+        var fullName = req.body.fullName ? req.body.fullName.trim().toLowerCase() : req.body.fullName;
         var size = req.body.size;
 
         if (!size || isNaN(size) || Number(size) < 1 || Number(size) > 5){
