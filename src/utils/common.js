@@ -3,7 +3,7 @@ var round2Digit = function(num){
 };
 
 var checkValidSize = function(size){
-	if (!size || isNaN(size) || Number(size) < 1 || Number(size) > 5){
+	if (!size || isNaN(size) || !Number.isInteger(Number(size)) || Number(size) < 1 || Number(size) > 5){
 	    return false;
 	}
 

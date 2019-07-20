@@ -28,6 +28,9 @@ describe('Unit Test', function() {
 			it('size number 6 should be invalid', function() {
 				assert.isNotTrue(Common.checkValidSize(6));
 			});
+			it('size string 1.53 should be invalid', function() {
+				assert.isNotTrue(Common.checkValidSize("1.53"));
+			});
 		});
 	});
 });
