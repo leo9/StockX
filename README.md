@@ -21,7 +21,7 @@
 * **style**: String, e.g. Jordan
 * **fullName**: String, e.g. Jordan 1 Retro High
 3. Responses:
-* **200**: JSON string of {"avgTrueToSize":VALUE}. VALUE is a number with at most 2 decimal places. If VALUE is -1 meaning there is currenly no data for the specific shoes.
+* **200**: JSON string of {"avgTrueToSize":VALUE}. VALUE is a number. If VALUE is -1 meaning there is currenly no data for the specific shoes.
 * **400**: Bad Request. Please find whether fullName, OR brand and style are given in input.
 * **500**  Internal Error. This is when backend service lost connection to db or other internal errors.
 4. **Special Notes: Either fullName alone or brand and style together should be given.** If only brand is given, the request will be treated as bad request.
